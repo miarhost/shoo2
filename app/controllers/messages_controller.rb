@@ -8,8 +8,8 @@ class MessagesController < ApplicationController
 
   def create 
   	@message = Message.new(message_params)
-  	@message.to_json
-  	 respond_to do |format|
+    @message = 
+  	 	 respond_to do |format|
   	  if @message.save
   	    format.html { redirect_to @messages, notice: "New message is received" }
   		format.json { render :index, status: :created, location: @message }
@@ -18,6 +18,7 @@ class MessagesController < ApplicationController
         format.json { render json: @message.errors, status: :unprocessable_entity }
   	   end
     end
+    @message.parse 
   end
 
   def sort_amount
@@ -25,11 +26,10 @@ class MessagesController < ApplicationController
   	@message = @messages.sort_by{|message| message.amount}
   end
 
-  private
+private
 
-
-  def message_params
-  	params.require(:message).permit(:first_name, :last_name, :email, :amount)
-  end
+def message_params
+  JSON.parse(params[:first_name, :last_name, :email, :amount])
+end
 
 end
