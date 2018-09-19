@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def create 
-  	@message = Message.new(message_params)
+  	@message = Message.new(first_name: message_params[:first_name],last_name: message_params[:last_name],email: message_params[:email], amount: message_params[:amount])
    
   	 	 respond_to do |format|
   	  if @message.save
