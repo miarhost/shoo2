@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   	    end
   root 'messages#index'
   resolve ("Messages") { [:messages] }
+
 end

@@ -1,0 +1,1 @@
+json.array! @messages, partial: 'sort_amount', as: :messages

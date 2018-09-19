@@ -34,7 +34,7 @@ end
 private
 
 def message_params
-  JSON.parse(params[:message])
+  JSON.parse(params[:first_name, :last_name, :email, :amount])
 end
 
 end
