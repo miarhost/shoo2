@@ -12,7 +12,7 @@
       <th>First name</th>
       <th>Email</th>
       <th>Last name</th>
-      <th>Amount<%= button_to 'Sort by amount', action: "sort_amount", remote: true , class: 'btn btn-primary' %></th>
+      <th>Amount<%= button_to 'Sort by amount', action: "sort_amount", method: :get, remote: true , class: 'btn btn-primary' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

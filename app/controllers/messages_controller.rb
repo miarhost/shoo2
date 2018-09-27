@@ -27,10 +27,12 @@ class MessagesController < ApplicationController
  def sort_amount
   @messages = Message.all
     @messages.sort {|a,b| b.amount <=> a.amount }
+    render action: :sort_amount, layout: false
   end
 
 def sort_name 
   @messages.order('messages.first_name')
+  render action: :sort_name
 end
 
 private

@@ -12,4 +12,8 @@ EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	length: { maximum: 255 },
 	format: { with: EMAIL }
 	validates :amount, presence: true, numericality: { only_integer: true }, allow_blank: false
+    
+    scope :sort_amount, -> { order(amount: :desc) }
+    scope :sort_name, -> { order(name: :acs) }
+
 end
