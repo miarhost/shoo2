@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   	 	 respond_to do |format|
   	  if @message.save
   	    format.html { redirect_to @messages, notice: "New message is received" }
-  		format.json { render :index, status: :created, location: @message }
+  		format.json { render :index, status: :created, location: @messages }
        else
     	format.html { render :index, notice: "Message can't be processed due to #{@message.errors.count} errors" }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -38,7 +38,8 @@ end
 private
 
 def message_params
-  JSON.parse(params[:first_name, :last_name, :email, :amount])
+  message_params = params.require(:message).permit([:first_name, :last_name, :email, :amount])
+  #JSON.parse(params[:message_params])
 end
 
 end
