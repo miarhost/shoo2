@@ -2,11 +2,11 @@ require 'json'
 
 class MessagesController < ApplicationController
 
+
  skip_before_action :verify_authenticity_token
  
   def index
-  	@messages = Message.all
-
+     	@messages = Message.all
   end
 
   def create 
@@ -26,20 +26,24 @@ class MessagesController < ApplicationController
 
  def sort_amount
   @messages = Message.all
-    @messages.sort {|a,b| b.amount <=> a.amount }
-    render action: :sort_amount, layout: false
+  respond_to do |format|
+    @messages.sort_by(&:amount)
+    format.js { render :sort_amount, layout: false }
+   end
   end
 
 def sort_name 
-  @messages.order('messages.first_name')
-  render action: :sort_name
+  @messages = Message.all
+  respond_to do |format|
+  @messages.sort_by(&:first_name)
+  format.js { render :sort_name, layout: false }
+  end
 end
 
 private
 
 def message_params
   message_params = params.require(:message).permit([:first_name, :last_name, :email, :amount])
-  #JSON.parse(params[:message_params])
 end
 
 end

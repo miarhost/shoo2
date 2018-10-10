@@ -9,10 +9,10 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <thead style= "background-color: #bdacac; font-family: 'Liberation Sans';font-size: 12.7px">
     <tr class="text-gray">
-      <th>First name</th>
+      <th>First name<%= button_to 'Sort by first name', action: "sort_name", method: :post, remote: true , class: 'btn btn-primary' %></th>
       <th>Email</th>
       <th>Last name</th>
-      <th>Amount<%= button_to 'Sort by amount', action: "sort_amount", method: :get, remote: true , class: 'btn btn-primary' %></th>
+      <th>Amount<%= button_to 'Sort by amount', action: "sort_amount", method: :post, remote: true , class: 'btn btn-primary' %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
