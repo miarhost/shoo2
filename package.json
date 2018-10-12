@@ -1,5 +1,9 @@
 {
   "name": "shoo2",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery-ujs": "^1.2.2",
+    "node": "^10.11.0"
+  }
 }
