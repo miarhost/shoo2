@@ -17,7 +17,7 @@ gem 'jquery-rails', '~> 4.3.1'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem 'bootstrap-table-rails', '~> 1.12', '>= 1.12.1'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

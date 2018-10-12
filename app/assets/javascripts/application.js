@@ -14,4 +14,8 @@
 //= require jquery-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.turbolinks
+//= require bootstrap-sprockets
+ //= require bootstrap-table
+//= require locale/bootstrap-table-ru-RU
 //= require_tree .

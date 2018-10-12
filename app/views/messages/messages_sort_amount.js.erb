@@ -1,0 +1,13 @@
+$('#filter_content p').on('click',function(){
+    $('#filter_content').animate({
+        height: 0
+    }).addClass('open');
+    $('#messages .item').fadeOut().fadeIn();
+    var type = $(this).text();
+        $.ajax({
+            url: 'messages/sort_amount',
+            type: 'POST',
+            data: type,
+            dataType: 'script'
+        })
+})
