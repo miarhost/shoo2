@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  
-  resources :messages, only: [:create, :index], :defaults => { :format => 'json' } do
-   	 post :sort_amount, :on => :collection
-  	 post :sort_name, :on => :collection
-  end
-  
-  root 'messages#index'
-  resolve ("Messages") { [:messages] }
-
+	namespace :api do
+	  namespace :v1 do
+    resources :messages
+    root to: 'api/v1/messages#index'
+    get 'report', to: 'messages#report'
+   end
+ end
 end

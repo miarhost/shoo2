@@ -1,0 +1,16 @@
+<%= form_for(form_for_object_from_param(:filter),
+             method: :get,
+             url: report_path,
+             html: { class: 'form' }) do |f| %>
+  <div class="form-group">
+    <%= f.label(:attribute, class: 'control-label') %>
+    <%= f.text_field(:attribute, class: 'form-control') %>
+  </div>
+
+  <div class="text-right">
+    <%= content_tag(:button,
+                    'Search',
+                    type: 'submit',
+                    class: 'btn btn-info') %>
+  </div>
+<% end %>
